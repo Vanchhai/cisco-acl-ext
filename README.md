@@ -9,7 +9,7 @@
 The general structure for an Extended ACL entry is:
 **access-list [number] [permit|deny] [protocol] [source_address] [source_wildcard] [destination_address] [destination_wildcard] [operator] [port]**
 
-## Network Topology
+## Network Topology 
 The network topology consists of two distinct sites connected via a Serial WAN connection using the subnet `203.0.113.0/30`.
 
 Below is the network diagram for this lab setup:
