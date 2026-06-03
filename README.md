@@ -68,7 +68,7 @@ R1(config-if)#ip access-group BLOCK_PING_LAN2_to_SERVER1 in
 ```
 
 ## Show Configuration
-### Show Access List
+### R1 Configuration
 ```bash
 R1#show ip access-lists 
 Extended IP access list BLOCK_HTTP_LAN1_to_SERVER2
@@ -102,4 +102,39 @@ L       192.168.2.1/32 is directly connected, GigabitEthernet0/0/1
      203.0.113.0/24 is variably subnetted, 2 subnets, 2 masks
 C       203.0.113.0/30 is directly connected, Serial0/1/0
 L       203.0.113.1/32 is directly connected, Serial0/1/0
+```
+
+### R2 Configuration
+```bash
+R2#show ip interface brief 
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet0/0/0   10.0.1.1        YES manual up                    up 
+GigabitEthernet0/0/1   10.0.2.1        YES manual up                    up 
+GigabitEthernet0/0/2   unassigned      YES unset  administratively down down 
+Serial0/1/0            203.0.113.2     YES manual up                    up 
+Serial0/1/1            unassigned      YES unset  administratively down down 
+Vlan1                  unassigned      YES unset  administratively down down
+```
+```bash
+R2#show ip route 
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     10.0.0.0/8 is variably subnetted, 4 subnets, 2 masks
+C       10.0.1.0/24 is directly connected, GigabitEthernet0/0/0
+L       10.0.1.1/32 is directly connected, GigabitEthernet0/0/0
+C       10.0.2.0/24 is directly connected, GigabitEthernet0/0/1
+L       10.0.2.1/32 is directly connected, GigabitEthernet0/0/1
+S    192.168.1.0/24 [1/0] via 203.0.113.1
+S    192.168.2.0/24 [1/0] via 203.0.113.1
+     203.0.113.0/24 is variably subnetted, 2 subnets, 2 masks
+C       203.0.113.0/30 is directly connected, Serial0/1/0
+L       203.0.113.2/32 is directly connected, Serial0/1/0
 ```
