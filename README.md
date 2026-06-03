@@ -13,12 +13,14 @@ Below is the network diagram for this lab setup:
 ![Network Topology](./topology/topology-img2.png)
 
 ### Network Segmentation
-* **Site A (Left Side - Core Router 1):**
-  * **LAN 1 (Green Zone):** `192.168.1.0/24`
-  * **LAN 2 (Pink Zone):** `192.168.2.0/24`
-* **Site B (Right Side - Core Router 2):**
-  * **LAN SV1 (Blue Zone):** `10.0.1.0/24` (Hosts Server1.10)
-  * **LAN SV2 (Yellow Zone):** `10.0.2.0/24` (Hosts Server2.10)
+
+  | Segment | Network Address | Default Gateway | Attached Devices / Role |
+| :--- | :--- | :--- | :--- |
+| **LAN 1** | `192.168.1.0/24` | `192.168.1.1` | PC01, PC02 |
+| **LAN 2** | `192.168.2.0/24` | `192.168.2.1` | PC03, PC04 |
+| **WAN Link** | `203.0.113.0/30` | — | Serial Link (R1 $\leftrightarrow$ R2) |
+| **SERVER 1** | `10.0.1.0/24` | `10.0.1.1` | Critical Server 1 |
+| **SERVER 2** | `10.0.2.0/24` | `10.0.2.1` | Critical Server 2 |
 
 ## Project Overview
 This repository contains a Cisco Packet Tracer laboratory focused on implementing **Extended Access Control Lists (ACLs)**. Unlike Standard ACLs, which only filter traffic based on the source IP address, Extended ACLs provide granular control by filtering traffic based on:
