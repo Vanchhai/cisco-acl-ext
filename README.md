@@ -1,15 +1,15 @@
 # Extended Access Control List (ACL) Configuration Lab
 
 ## Key Characteristics
-**Range:** Use the numbering range 100–199 and 2000–2699.
-**Placement:** Should be placed as close to the source of the traffic as possible to save bandwidth and router resources.
-**Implicit Deny:** Every ACL ends with an invisible deny ip any any. If traffic doesn't match a permit statement, it is dropped.
+* **Range:** Use the numbering range 100–199 and 2000–2699.
+* **Placement:** Should be placed as close to the source of the traffic as possible to save bandwidth and router resources.
+* **Implicit Deny:** Every ACL ends with an invisible deny ip any any. If traffic doesn't match a permit statement, it is dropped.
 
 ## Command Syntax
 The general structure for an Extended ACL entry is:
-access-list [number] [permit|deny] [protocol] [source_address] [source_wildcard] [destination_address] [destination_wildcard] [operator] [port]
+**access-list [number] [permit|deny] [protocol] [source_address] [source_wildcard] [destination_address] [destination_wildcard] [operator] [port]**
 
-## 📌 Project Overview
+## Project Overview
 This repository contains a Cisco Packet Tracer laboratory focused on implementing **Extended Access Control Lists (ACLs)**. Unlike Standard ACLs, which only filter traffic based on the source IP address, Extended ACLs provide granular control by filtering traffic based on:
 * Source and Destination IP addresses
 * Protocols (IP, TCP, UDP, ICMP, etc.)
