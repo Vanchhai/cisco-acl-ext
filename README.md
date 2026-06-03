@@ -5,10 +5,6 @@
 * **Placement:** Should be placed as close to the source of the traffic as possible to save bandwidth and router resources.
 * **Implicit Deny:** Every ACL ends with an invisible deny ip any any. If traffic doesn't match a permit statement, it is dropped.
 
-## Command Syntax
-The general structure for an Extended ACL entry is:
-**access-list [number] [permit|deny] [protocol] [source_address] [source_wildcard] [destination_address] [destination_wildcard] [operator] [port]**
-
 ## Network Topology 
 The network topology consists of two distinct sites connected via a Serial WAN connection using the subnet `203.0.113.0/30`.
 
@@ -36,6 +32,12 @@ The security policy demands traffic restriction between specific networks while 
 1. **Block HTTP Traffic:** Prevent all traffic originating from **LAN 1** (`192.168.1.0/24`) from reaching web services (HTTP / Port 80) on **LAN SV2** (`10.0.2.10/24`).
 2. **Block PING Traffic:** Prevent all ICMP (Ping) traffic originating from **LAN 2** (`192.168.2.0/24`) from reaching **LAN SV1** (`10.0.1.10/24`).
 3. **Permit All Other Traffic:** All other network segments must maintain seamless inter-VLAN and cross-WAN communication.
+
+
+## Command Syntax
+The general structure for an Extended ACL entry is:
+**access-list [number] [permit|deny] [protocol] [source_address] [source_wildcard] [destination_address] [destination_wildcard] [operator] [port]**
+
 
 ## Configuration & Implementation
 
